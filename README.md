@@ -11,9 +11,9 @@ Berbagai studi sebelumnya telah membuktikan efektivitas algoritma berbasis pohon
 Dengan demikian, penerapan machine learning dalam prediksi harga berlian merupakan solusi potensial untuk meningkatkan efisiensi, konsistensi, dan skala dalam industri perhiasan. Proyek ini bertujuan untuk membangun model prediktif yang dapat mempelajari pola hubungan antara atribut fisik berlian dan harga jualnya berdasarkan data historis, serta mengevaluasi kinerja model berdasarkan metrik yang relevan.
 
 ## Referensi
-https://www.researchgate.net/publication/363621267_A_Survey_of_Ensemble_Learning_Concepts_Algorithms_Applications_and_Prospects
-https://www.researchgate.net/profile/Ayush-Vispute/publication/371171793_Diamond_Price_Prediction_Using_Machine_Learning_Algorithms/links/67bcadb48311ce680c738593/Diamond-Price-Prediction-Using-Machine-Learning-Algorithms.pdf
-https://cogito.unklab.ac.id/index.php/cogito/article/view/532/350
+- [Machine Learning Algorithms]((https://www.researchgate.net/publication/363621267_A_Survey_of_Ensemble_Learning_Concepts_Algorithms_Applications_and_Prospects))
+- [Diamond Price Prediction Using Machine Learning Algorithms]([url](https://www.researchgate.net/profile/Ayush-Vispute/publication/371171793_Diamond_Price_Prediction_Using_Machine_Learning_Algorithms/links/67bcadb48311ce680c738593/Diamond-Price-Prediction-Using-Machine-Learning-Algorithms.pdf))
+- [Analysis Comparison of K-Nearest Neighbor, Multi-LayerPerceptron, and Decision Tree Algorithms in Diamond Price Prediction]([url](https://cogito.unklab.ac.id/index.php/cogito/article/view/532/350))
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
