@@ -11,15 +11,9 @@ Berbagai studi sebelumnya telah membuktikan efektivitas algoritma berbasis pohon
 Dengan demikian, penerapan machine learning dalam prediksi harga berlian merupakan solusi potensial untuk meningkatkan efisiensi, konsistensi, dan skala dalam industri perhiasan. Proyek ini bertujuan untuk membangun model prediktif yang dapat mempelajari pola hubungan antara atribut fisik berlian dan harga jualnya berdasarkan data historis, serta mengevaluasi kinerja model berdasarkan metrik yang relevan.
 
 ## Referensi
-- [Machine Learning Algorithms]((https://www.researchgate.net/publication/363621267_A_Survey_of_Ensemble_Learning_Concepts_Algorithms_Applications_and_Prospects))
-- [Diamond Price Prediction Using Machine Learning Algorithms]([url](https://www.researchgate.net/profile/Ayush-Vispute/publication/371171793_Diamond_Price_Prediction_Using_Machine_Learning_Algorithms/links/67bcadb48311ce680c738593/Diamond-Price-Prediction-Using-Machine-Learning-Algorithms.pdf))
-- [Analysis Comparison of K-Nearest Neighbor, Multi-LayerPerceptron, and Decision Tree Algorithms in Diamond Price Prediction]([url](https://cogito.unklab.ac.id/index.php/cogito/article/view/532/350))
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-- Format Referensi dapat mengacu pada penulisan sitasi [IEEE](https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE_Reference_Guide.pdf), [APA](https://www.mendeley.com/guides/apa-citation-guide/) atau secara umum seperti [di sini](https://penerbitdeepublish.com/menulis-buku-membuat-sitasi-dengan-mudah/)
-- Sumber yang bisa digunakan [Scholar](https://scholar.google.com/)
+- [Machine Learning Algorithms]([https://www.researchgate.net/publication/363621267_A_Survey_of_Ensemble_Learning_Concepts_Algorithms_Applications_and_Prospects])
+- [Diamond Price Prediction Using Machine Learning Algorithms]([https://www.researchgate.net/profile/Ayush-Vispute/publication/371171793_Diamond_Price_Prediction_Using_Machine_Learning_Algorithms/links/67bcadb48311ce680c738593/Diamond-Price-Prediction-Using-Machine-Learning-Algorithms.pdf])
+- [Analysis Comparison of K-Nearest Neighbor, Multi-LayerPerceptron, and Decision Tree Algorithms in Diamond Price Prediction]([https://cogito.unklab.ac.id/index.php/cogito/article/view/532/350])
 
 ## Business Understanding
 
