@@ -92,7 +92,7 @@ Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 ## Kategorical
 Fitur kategorikal dalam dataset berlian meliputi: cut, color, dan clarity. Analisis dilakukan dengan menghitung frekuensi dan membuat visualisasi (bar chart) untuk melihat proporsi masing-masing kategori.
 
-![alt text] <img width="231" alt="Screenshot 2025-05-09 at 13 45 24" src="https://github.com/user-attachments/assets/a2b94bfb-ee3d-41dd-b01b-55bb0a680023" />
+![alt text] <img width="231" alt="Screenshot 2025-05-09 at 13 45 24" src="https://github.com/user-attachments/assets/a2b94bfb-ee3d-41dd-b01b-55bb0a680023"/>
 
 ## Numerik
 
