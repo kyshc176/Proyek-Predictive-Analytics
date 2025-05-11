@@ -213,11 +213,12 @@ MSE mengukur rata-rata kuadrat perbedaan antara nilai yang diprediksi dan nilai 
 <img width="375" alt="Screenshot 2025-05-11 at 13 27 33" src="https://github.com/user-attachments/assets/ae75a686-929c-4928-8a94-beeb130d2b46" />
 
 # Hasil Evaluasi
-|Model	|MSE	|R² |
-|Linear Regression|	1.29e+06|	0.92|
-|Decision Tree|	7.16e+05|	0.95|
-|Random Forest|	4.09e+05|	0.97|
-|K-Nearest Neighbors|	6.84e+05|	0.96|
+| Model               | MSE       | R²   |
+|---------------------|-----------|------|
+| Linear Regression   | 1.29e+06  | 0.92 |
+| Decision Tree       | 7.16e+05  | 0.95 |
+| Random Forest       | 4.09e+05  | 0.97 |
+| K-Nearest Neighbors | 6.84e+05  | 0.96 |
 
 <img width="752" alt="Screenshot 2025-05-11 at 13 38 26" src="https://github.com/user-attachments/assets/a461aa3d-3f17-4576-b5d4-b3991dc6053c" />
 <img width="730" alt="Screenshot 2025-05-11 at 13 38 02" src="https://github.com/user-attachments/assets/004b0af2-8306-4616-9015-ce50333097f1" />
