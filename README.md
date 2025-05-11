@@ -93,8 +93,14 @@ Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 Fitur kategorikal dalam dataset berlian meliputi: cut, color, dan clarity. Analisis dilakukan dengan menghitung frekuensi dan membuat visualisasi (bar chart) untuk melihat proporsi masing-masing kategori.
 
 ![Screenshot 2025-05-09 at 13:45:24](https://github.com/user-attachments/assets/a2b94bfb-ee3d-41dd-b01b-55bb0a680023)
+<img width="667" alt="Screenshot 2025-05-09 at 13 45 36" src="https://github.com/user-attachments/assets/aaece686-3a40-42c9-884c-5a3e9113b608" />
+<img width="666" alt="Screenshot 2025-05-09 at 13 45 42" src="https://github.com/user-attachments/assets/1314f9bf-15c5-4412-8757-b7e1bf5c9e22" />
+<img width="662" alt="Screenshot 2025-05-09 at 13 45 51" src="https://github.com/user-attachments/assets/618417d4-0070-4fb8-bec9-e320dc011126" />
 
 ## Numerik
+Fitur numerik meliputi: carat, depth, table, x, y, z, dan price.
+
+<img width="595" alt="Screenshot 2025-05-09 at 13 45 29" src="https://github.com/user-attachments/assets/d2d4b381-9dcf-428c-9714-f906b9aa8480" />
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
