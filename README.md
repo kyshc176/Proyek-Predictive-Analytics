@@ -1,91 +1,79 @@
 # Laporan Proyek Machine Learning - Tika Putri Marsanti
-# Prediksi Harga Berlian Menggunakan Algoritma Machine Learning
+# Bank Marketing Effectiveness Prediction
 
 ## Domain Proyek
-Industri perhiasan merupakan salah satu sektor bernilai tinggi dalam perekonomian global, dengan perdagangan berlian sebagai salah satu komoditas utamanya. Penetapan harga berlian tidak hanya bergantung pada pasar, namun juga sangat dipengaruhi oleh karakteristik fisik berlian itu sendiri, seperti berat (carat), kualitas potongan (cut), kejernihan (clarity), dan warna (color). Secara tradisional, proses penilaian harga dilakukan oleh para ahli gemologi menggunakan metode manual berdasarkan panduan standar seperti 4C (Carat, Cut, Color, Clarity). Namun demikian, proses ini dapat menimbulkan beberapa kendala seperti keterbatasan sumber daya manusia ahli, potensi subjektivitas dalam penilaian, serta inkonsistensi harga antar pihak yang berbeda.
+Industri perbankan modern sangat bergantung pada strategi pemasaran yang tepat untuk meningkatkan akuisisi nasabah dan penjualan produk keuangan. Salah satu pendekatan yang umum digunakan adalah kampanye pemasaran langsung (direct marketing), seperti pengiriman email, panggilan telepon, atau surat fisik kepada calon nasabah. Namun, kampanye ini sering kali memiliki tingkat respons yang rendah, sehingga diperlukan pendekatan analitik yang mampu mengidentifikasi target potensial dengan akurasi tinggi.
 
-Teknologi Machine Learning (ML) dapat digunakan untuk membangun sistem prediksi harga berlian berbasis data, yang mampu mengestimasi harga berdasarkan karakteristik fisiknya secara objektif. Hal ini tidak hanya meningkatkan efisiensi dan akurasi penilaian harga, tetapi juga membuka peluang integrasi sistem ke berbagai platform seperti e-commerce perhiasan, layanan appraisal digital, hingga penilaian aset dalam asuransi atau pembiayaan.
+Machine Learning (ML) memungkinkan analisis data historis kampanye pemasaran bank untuk memprediksi efektivitas suatu kampanye berdasarkan profil pelanggan. Dengan mengolah data seperti umur, pekerjaan, status pernikahan, pendidikan, status pinjaman, dan histori interaksi, model ML dapat mengidentifikasi pola-pola tertentu yang terkait dengan keberhasilan kampanye.
 
-Berbagai studi sebelumnya telah membuktikan efektivitas algoritma berbasis pohon keputusan seperti Random Forest dapat menyelesaikan masalah regresi, terutama pada data non-linear dengan banyak variabel. Model ensemble seperti Random Forest dapat menghasilkan prediksi yang lebih stabil dan akurat dibandingkan metode regresi linier klasik, terutama dalam kasus prediksi harga aset dengan variabilitas tinggi. 
+Studi-studi sebelumnya telah menunjukkan bahwa algoritma seperti Decision Tree, Random Forest, dan Logistic Regression cukup efektif dalam memprediksi keberhasilan kampanye pemasaran. Model klasifikasi ini dapat membantu bank dalam menghemat biaya, meningkatkan tingkat konversi, dan merancang strategi pemasaran yang lebih tertarget.
 
-Dengan demikian, penerapan machine learning dalam prediksi harga berlian merupakan solusi potensial untuk meningkatkan efisiensi, konsistensi, dan skala dalam industri perhiasan. Proyek ini bertujuan untuk membangun model prediktif yang dapat mempelajari pola hubungan antara atribut fisik berlian dan harga jualnya berdasarkan data historis, serta mengevaluasi kinerja model berdasarkan metrik yang relevan.
+Proyek ini bertujuan untuk membangun model klasifikasi berbasis Machine Learning untuk memprediksi apakah seorang pelanggan akan merespons positif terhadap kampanye pemasaran berdasarkan data historis, serta mengevaluasi model berdasarkan metrik klasifikasi yang relevan.
 
 ## Referensi
 - [Machine Learning Algorithms](https://www.researchgate.net/publication/363621267_A_Survey_of_Ensemble_Learning_Concepts_Algorithms_Applications_and_Prospects)
-- [Diamond Price Prediction Using Machine Learning Algorithms](https://www.researchgate.net/profile/Ayush-Vispute/publication/371171793_Diamond_Price_Prediction_Using_Machine_Learning_Algorithms/links/67bcadb48311ce680c738593/Diamond-Price-Prediction-Using-Machine-Learning-Algorithms.pdf)
-- [Analysis Comparison of K-Nearest Neighbor, Multi-LayerPerceptron, and Decision Tree Algorithms in Diamond Price Prediction](https://cogito.unklab.ac.id/index.php/cogito/article/view/532/350)
+- [Predictive Analysis on Bank Marketing Campaign](https://www.academia.edu/80786830/Predictive_Analysis_on_Bank_Marketing_Campaign_using_Machine_Learning_Algorithms)
+- [Bank Direct Marketing Campaign Success Prediction](https://www.researchgate.net/publication/385121297_Bank_Direct_Marketing_Campaign_Success_Prediction)
 
 ## Business Understanding
-
-Penilaian harga berlian merupakan aspek krusial dalam industri perhiasan. Harga berlian ditentukan oleh kombinasi berbagai atribut fisik yang dikenal dengan konsep 4C: carat, cut, color, dan clarity. Namun dalam praktiknya, penilaian harga oleh ahli gemologi masih bersifat subjektif dan memerlukan pengalaman yang tinggi. Hal ini membuka peluang bagi solusi otomatis berbasis teknologi, khususnya Machine Learning, untuk menghasilkan prediksi harga yang lebih objektif, efisien, dan konsisten.Dengan data historis penjualan berlian yang mencakup atribut fisik dan harga aktual, kita dapat mengembangkan model prediktif untuk mengestimasi harga berlian baru secara otomatis.
+Dalam sektor perbankan, kampanye pemasaran langsung sering kali menghasilkan biaya besar dengan tingkat keberhasilan yang rendah. Untuk meningkatkan efektivitasnya, bank memerlukan sistem prediksi yang mampu mengidentifikasi pelanggan yang paling mungkin merespons kampanye. Dengan pendekatan berbasis data historis, kita dapat memanfaatkan machine learning untuk memprediksi respons nasabah, sehingga proses pemasaran menjadi lebih efisien, tertarget, dan hemat biaya.
 
 Bagian laporan ini mencakup:
 
 ## Problem Statements
-1. Bagaimana cara memprediksi harga berlian secara akurat berdasarkan atribut fisiknya?
-
-2. Fitur-fitur apa saja yang memiliki pengaruh paling signifikan terhadap harga berlian?
-
-3. Model Machine Learning mana yang paling efektif dalam melakukan prediksi harga berlian?
+1. Bagaimana memprediksi apakah seorang nasabah akan merespons positif terhadap kampanye pemasaran bank?
+2. Fitur-fitur nasabah mana yang paling berpengaruh terhadap keberhasilan kampanye?
+3. Algoritma Machine Learning mana yang paling efektif dalam memprediksi keberhasilan kampanye pemasaran?
 
 ## Goals
-Mengembangkan model prediktif berbasis Machine Learning untuk memperkirakan harga berlian menggunakan data historis.
-
-Mengidentifikasi atribut (fitur) yang paling berpengaruh terhadap harga, baik secara statistik maupun melalui teknik interpretabilitas model.
-
-Menentukan model terbaik berdasarkan hasil evaluasi untuk digunakan sebagai solusi akhir dalam prediksi harga.
+- Membangun model klasifikasi untuk memprediksi respons nasabah terhadap kampanye pemasaran.
+- Mengidentifikasi fitur yang paling berkontribusi terhadap keberhasilan kampanye menggunakan metode interpretabilitas model.
+- Mengevaluasi dan memilih model terbaik berdasarkan metrik klasifikasi.
 
 ## Solution Statements
 Untuk menjawab problem statements dan mencapai goals di atas, pendekatan solusi dilakukan melalui tahapan berikut:
 
-1. Pemodelan menggunakan berbagai algoritma regresi, yaitu:
+1.Menerapkan beberapa algoritma klasifikasi untuk membandingkan performa:
+- Logistic Regression: sebagai baseline model yang sederhana dan mudah ditafsirkan.
+- Support Vector Classifier (SVC): model yang efektif untuk klasifikasi dengan margin maksimal, terutama pada data dengan dimensi tinggi atau distribusi yang kompleks.
+- Random Forest Classifier: model ensemble berbasis banyak decision tree yang mampu menangani overfitting dan memberikan hasil prediksi yang stabil.
+- K-Nearest Neighbors (KNN) Classifier: algoritma non-parametrik berbasis kemiripan antar data yang cocok untuk klasifikasi berbasis jarak.
 
-- Linear Regression sebagai baseline model yang sederhana dan mudah ditafsirkan.
-
-- Decision Tree Regressor, algoritma berbasis pohon keputusan yang dapat menangani data non-linear.
-
-- Random Forest Regressor, model ensemble yang menggabungkan banyak decision tree untuk meningkatkan akurasi dan mengurangi overfitting.
-
-- K-Nearest Neighbors Regressor (KNN), algoritma instance-based yang menggunakan jarak antar sampel untuk prediksi.
-
-2. Hyperparameter Tuning dan Validasi Silang (Cross-Validation)
-Dilakukan untuk mengoptimalkan performa model, khususnya Random Forest dan KNN, dengan menggunakan teknik seperti Grid Search atau Randomized Search agar hasil prediksi tidak hanya akurat tetapi juga andal di data baru.
+2. Hyperparameter Tuning dan Validasi Silang (Cross-Validation):
+Melakukan tuning hyperparameter menggunakan Grid Search atau Randomized Search untuk meningkatkan performa model, khususnya pada model SVC dan Random Forest.
+Validasi silang dilakukan untuk memastikan bahwa model tidak overfitting terhadap data latih dan mampu melakukan generalisasi pada data baru.
 
 3. Evaluasi menggunakan metrik regresi, yaitu:
 
-- MAE (Mean Absolute Error): untuk mengetahui rata-rata selisih absolut antara prediksi dan nilai aktual.
+- Accuracy: mengukur seberapa banyak prediksi yang benar.
+- Precision, Recall, F1-Score: digunakan untuk mengevaluasi performa dalam kondisi distribusi data yang tidak seimbang.
+- ROC-AUC Score: digunakan untuk menilai kemampuan model dalam membedakan antara kelas positif dan negatif.
 
-- RMSE (Root Mean Squared Error): untuk memperhatikan penalti terhadap error besar.
-
-- R² Score: untuk mengukur proporsi variasi data yang dapat dijelaskan oleh model.
-
-3. Analisis fitur penting (feature importance) dari model Random Forest untuk mengetahui atribut-atribut yang paling berpengaruh terhadap harga.
+3. Analisis fitur penting:
+Untuk model seperti Random Forest, dilakukan analisis feature importance untuk mengetahui fitur mana yang paling berpengaruh.
 
 ## Data Understanding
-Proyek ini menggunakan dataset publik yang tersedia di Kaggle: Diamonds Dataset by Shivam Bansal. Dataset ini berisi informasi detail mengenai lebih dari 50.000 berlian, termasuk harga dan karakteristik fisiknya. Dataset ini sering digunakan sebagai benchmark dalam studi prediktif harga karena cukup lengkap dan representatif terhadap kondisi pasar perhiasan.
+Dataset yang digunakan adalah Bank Marketing Dataset dari UCI Machine Learning Repository. Dataset ini sering digunakan sebagai benchmark dalam penelitian prediksi respons kampanye pemasaran.
 
-Dataset memiliki total 53.940 entri dan 10 kolom, dengan masing-masing baris merepresentasikan satu unit berlian.
+Dataset ini terdiri dari 45.211 entri dan 17 kolom, masing-masing baris merepresentasikan satu interaksi nasabah dalam kampanye pemasaran.
 
-## Variabel-variabel pada Diamonds dataset adalah sebagai berikut:
-- carat: berat berlian dalam satuan karat. Semakin berat, biasanya semakin mahal.
-
-- cut: kualitas potongan berlian. Merupakan kategori ordinal: Fair, Good, Very Good, Premium, Ideal.
-
-- color: tingkat warna berlian, dikategorikan dari D (terjernih) hingga J (paling kuning).
-
-- clarity: tingkat kejernihan berlian, dikategorikan dari I1 (terburuk) hingga IF (terbaik).
-
-- depth: total kedalaman berlian sebagai persentase dari rata-rata diameter.
-
-- table: lebar bagian atas berlian sebagai persentase dari rata-rata diameter.
-
-- price: harga dalam dolar AS. Ini adalah target variabel (variabel yang diprediksi).
-
-- x: panjang berlian dalam milimeter.
-
-- y: lebar berlian dalam milimeter.
-
-- z: tinggi berlian dalam milimeter.
+## Variabel pada Bank Marketing Dataset:
+- age: umur nasabah
+- job: pekerjaan
+- marital: status pernikahan
+- education: tingkat pendidikan
+- default: apakah nasabah memiliki kredit macet
+- balance: saldo tahunan rata-rata
+- housing: apakah memiliki pinjaman rumah
+- loan: apakah memiliki pinjaman pribadi
+- contact: jenis kontak komunikasi (cellular/telephone)
+- day/month: hari dan bulan kontak terakhir
+- duration: durasi kontak terakhir dalam detik
+- campaign: jumlah kontak selama kampanye ini
+- pdays: jumlah hari sejak terakhir kali dihubungi
+- previous: jumlah kontak sebelumnya
+- poutcome: hasil dari kampanye pemasaran sebelumnya
+- y: target label (yes/no) – apakah nasabah menerima tawaran produk ban
 
 ## Unvariate Analisys
 Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
