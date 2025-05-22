@@ -34,7 +34,6 @@ Bagian laporan ini mencakup:
 Untuk menjawab problem statements dan mencapai goals di atas, pendekatan solusi dilakukan melalui tahapan berikut:
 
 1.Menerapkan beberapa algoritma klasifikasi untuk membandingkan performa:
-- Logistic Regression: sebagai baseline model yang sederhana dan mudah ditafsirkan.
 - Support Vector Classifier (SVC): model yang efektif untuk klasifikasi dengan margin maksimal, terutama pada data dengan dimensi tinggi atau distribusi yang kompleks.
 - Random Forest Classifier: model ensemble berbasis banyak decision tree yang mampu menangani overfitting dan memberikan hasil prediksi yang stabil.
 - K-Nearest Neighbors (KNN) Classifier: algoritma non-parametrik berbasis kemiripan antar data yang cocok untuk klasifikasi berbasis jarak.
@@ -75,30 +74,42 @@ Dataset ini terdiri dari 45.211 entri dan 17 kolom, masing-masing baris merepres
 - poutcome: hasil dari kampanye pemasaran sebelumnya
 - y: target label (yes/no) – apakah nasabah menerima tawaran produk ban
 
-## Unvariate Analisys
-Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
+## Unvariate dan Bivariate Analisys
+Univariate dan bivariate Analysis adalah menganalisis setiap fitur secara terpisah.
 ## Kategorical
-Fitur kategorikal dalam dataset berlian meliputi: cut, color, dan clarity. Analisis dilakukan dengan menghitung frekuensi dan membuat visualisasi (bar chart) untuk melihat proporsi masing-masing kategori.
+Fitur kategorikal dalam dataset berlian meliputi:
+<img width="137" alt="Screenshot 2025-05-22 at 13 07 31" src="https://github.com/user-attachments/assets/baad7ff1-9fab-46ea-b275-4c57f4732b82" />
 
-![Screenshot 2025-05-09 at 13:45:24](https://github.com/user-attachments/assets/a2b94bfb-ee3d-41dd-b01b-55bb0a680023)
-<img width="667" alt="Screenshot 2025-05-09 at 13 45 36" src="https://github.com/user-attachments/assets/aaece686-3a40-42c9-884c-5a3e9113b608" />
-<img width="666" alt="Screenshot 2025-05-09 at 13 45 42" src="https://github.com/user-attachments/assets/1314f9bf-15c5-4412-8757-b7e1bf5c9e22" />
-<img width="662" alt="Screenshot 2025-05-09 at 13 45 51" src="https://github.com/user-attachments/assets/618417d4-0070-4fb8-bec9-e320dc011126" />
+<img width="1035" alt="Screenshot 2025-05-22 at 13 08 01" src="https://github.com/user-attachments/assets/01a5418d-c043-4bb1-bce1-a41edf58fa30" />
+<img width="1037" alt="Screenshot 2025-05-22 at 13 08 09" src="https://github.com/user-attachments/assets/81ae4e6d-99e8-4715-b3f2-73a3a0a604ee" />
+<img width="1033" alt="Screenshot 2025-05-22 at 13 12 48" src="https://github.com/user-attachments/assets/2729a510-db62-4d36-b88a-54ff8ab836b2" />
+<img width="1026" alt="Screenshot 2025-05-22 at 13 12 57" src="https://github.com/user-attachments/assets/170fd5ef-d6ac-4dee-9a8a-2e7f9550b579" />
+
 # Analisis
-- Data cenderung terkonsentrasi pada kualitas menengah hingga tinggi untuk semua atribut.
-- Hal ini menunjukkan bahwa dataset didominasi oleh berlian dengan karakteristik umum yang bernilai jual cukup tinggi (clarity sedang, warna netral, dan potongan bagus).
+- Nasabah yang tidak memiliki pinjaman pribadi, pinjaman perumahan, atau kredit macet memiliki rasio yang lebih tinggi untuk berlangganan deposito berjangka dibandingkan dengan nasabah yang memiliki pinjaman atau kredit macet.
+- Pada kolom pendidikan, persentase nasabah yang memiliki deposito berjangka lebih tinggi pada nasabah dengan kategori pendidikan menengah dan tinggi. Hal ini menunjukkan bahwa bank harus lebih fokus pada nasabah dengan kategori tersebut.
+- Pada kolom pernikahan, tidak ada pola yang jelas dalam rasio langganan. Namun, bank harus lebih fokus pada nasabah yang sudah menikah dan lajang yang masih berstatus pelajar. Hal ini karena kami mengamati pada grafik sebelumnya bahwa pelajar memiliki rasio langganan yang lebih tinggi pada kolom pekerjaan.
+- Pada kolom poutcome, kita dapat melihat dengan jelas bahwa nasabah yang berlangganan deposito berjangka pada kampanye pemasaran sebelumnya memiliki kemungkinan lebih besar untuk berlangganan kembali. Hal ini mengindikasikan peluang keberhasilan yang tinggi dalam menargetkan nasabah ini.
 
 ## Numerik
-Fitur numerik meliputi: carat, depth, table, x, y, z, dan price.
+Fitur numerik meliputi: 
 
-<img width="595" alt="Screenshot 2025-05-09 at 13 45 29" src="https://github.com/user-attachments/assets/d2d4b381-9dcf-428c-9714-f906b9aa8480" />
-<img width="882" alt="Screenshot 2025-05-09 at 13 47 59" src="https://github.com/user-attachments/assets/b648350c-b694-4192-9db8-40db70a6fb47" />
-<img width="892" alt="Screenshot 2025-05-09 at 13 48 06" src="https://github.com/user-attachments/assets/61b83625-3ecd-4fff-9edf-2d7a556b567b" />
+<img width="1028" alt="Screenshot 2025-05-22 at 13 32 05" src="https://github.com/user-attachments/assets/ba213a8c-4c1b-4d07-889b-49f67e2fdc77" />
+<img width="1030" alt="Screenshot 2025-05-22 at 13 32 23" src="https://github.com/user-attachments/assets/ef190903-6a5f-440e-83d8-e4e8af0c548d" />
 
 # Analisi
-- Baik distribusi carat maupun harga menunjukkan pola skew ke kanan, yang umum terjadi karena berlian dengan carat besar atau harga tinggi jarang ditemukan.
+- Kolom numerik 'usia', 'saldo', dan 'durasi' miring ke kanan, menunjukkan bahwa mungkin ada beberapa outlier yang ada di data. mereka jauh dari kisaran nilai normal dan dapat secara signifikan mempengaruhi analisis
 
-- Korelasi potensial: Ada indikasi bahwa semakin besar carat, semakin tinggi harga, namun distribusi ini tetap perlu dianalisis secara statistik (misalnya korelasi atau scatter plot) untuk mengonfirmasi hubungan langsung.
+- Sesuai histogram, ada beberapa nasabah yang berusia di atas 65 tahun dan telah dihubungi untuk deposito berjangka. Hal ini mungkin bukan strategi yang masuk akal karena nasabah ini mungkin tidak memiliki jangka waktu investasi yang cukup panjang untuk mendapatkan keuntungan dari deposito berjangka. kita harus menganalisis rasio nasabah usia tua yang berlangganan dan yang tidak berlangganan.
+
+<img width="1040" alt="Screenshot 2025-05-22 at 13 33 14" src="https://github.com/user-attachments/assets/d3bc181d-9ed2-402a-9326-489a8d3a223c" />
+
+# Analisi
+- `Usia:` Dari plot biola, kita dapat mengamati bahwa nasabah dalam **kelompok usia 20 hingga 30** memiliki peluang lebih tinggi untuk berlangganan deposito berjangka. Namun, setelah usia **60+**, rasio nasabah yang berlangganan juga tinggi. Penting untuk dicatat bahwa jumlah nasabah yang dihubungi pada kelompok usia **60+** lebih sedikit, yang dapat menjadi faktor dalam tren yang diamati.
+- `Saldo :` Distribusi saldo menunjukkan bahwa nasabah dengan **saldo yang lebih kecil cenderung tidak berlangganan deposito berjangka.
+- `Durasi :` Kita dapat melihat bahwa ketika durasi kontak terakhir yang dilakukan dengan nasabah lebih tinggi, ada kemungkinan besar nasabah tersebut berlangganan deposito berjangka.
+- `Kampanye :` Dari plot biola, kita dapat mengamati bahwa nasabah yang dihubungi **5 kali atau kurang** selama kampanye pemasaran saat ini memiliki kemungkinan lebih besar untuk berlangganan deposito berjangka.
+Pengamatan ini menunjukkan bahwa usia, saldo, durasi, dan kampanye merupakan faktor penting dalam menentukan apakah nasabah akan berlangganan deposito berjangka.
 
 ## Multivariate Analisys
 Multivariate Analysis menunjukkan hubungan antara dua atau lebih fitur dalam data.
