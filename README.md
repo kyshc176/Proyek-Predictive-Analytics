@@ -77,10 +77,16 @@ Dataset ini terdiri dari 45.211 entri dan 17 kolom, masing-masing baris merepres
 # Data Wrangling
 1. 5 Data teratas
 <img width="1060" alt="Screenshot 2025-05-23 at 13 13 58" src="https://github.com/user-attachments/assets/39fd526f-1048-4ff5-b60a-705707b7af7e" />
+
+
 2. Tipe data
 <img width="295" alt="Screenshot 2025-05-23 at 13 14 13" src="https://github.com/user-attachments/assets/e10bd35f-71f1-4848-bf71-5f93ac58f299" />
+
+
 3. Describe all numerical column
 <img width="752" alt="Screenshot 2025-05-23 at 13 15 24" src="https://github.com/user-attachments/assets/40bb5dbc-311b-48cb-89c4-702ede57e267" />
+
+
 # Analisis
 - Kolom **pdays** berisi nilai **-1**, yang mengindikasikan bahwa nasabah tertentu tidak dihubungi sebelumnya sebagai bagian dari kampanye pemasaran bank.
 - Dataset ini mencakup **sejumlah besar nasabah baru**, yang dibuktikan dengan prevalensi nilai 0 pada kolom sebelumnya, yang menunjukkan bahwa banyak nasabah yang belum pernah dihubungi sebelum kampanye ini.
