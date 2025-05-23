@@ -96,10 +96,11 @@ Dataset ini terdiri dari 45.211 entri dan 17 kolom, masing-masing baris merepres
 ## Unvariate dan Bivariate Analisys
 Univariate dan bivariate Analysis adalah menganalisis setiap fitur secara terpisah.
 ## Kategorical
-Fitur kategorikal dalam dataset berlian meliputi:
+Fitur kategorikal dalam dataset Bank Marketing meliputi:
 
 <img width="137" alt="Screenshot 2025-05-22 at 13 07 31" src="https://github.com/user-attachments/assets/baad7ff1-9fab-46ea-b275-4c57f4732b82" />
 
+# Unvariate
 <img width="1035" alt="Screenshot 2025-05-22 at 13 08 01" src="https://github.com/user-attachments/assets/01a5418d-c043-4bb1-bce1-a41edf58fa30" />
 <img width="1037" alt="Screenshot 2025-05-22 at 13 08 09" src="https://github.com/user-attachments/assets/81ae4e6d-99e8-4715-b3f2-73a3a0a604ee" />
 <img width="1033" alt="Screenshot 2025-05-22 at 13 12 48" src="https://github.com/user-attachments/assets/2729a510-db62-4d36-b88a-54ff8ab836b2" />
