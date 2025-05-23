@@ -97,6 +97,7 @@ Dataset ini terdiri dari 45.211 entri dan 17 kolom, masing-masing baris merepres
 Univariate dan bivariate Analysis adalah menganalisis setiap fitur secara terpisah.
 ## Kategorical
 Fitur kategorikal dalam dataset berlian meliputi:
+
 <img width="137" alt="Screenshot 2025-05-22 at 13 07 31" src="https://github.com/user-attachments/assets/baad7ff1-9fab-46ea-b275-4c57f4732b82" />
 
 <img width="1035" alt="Screenshot 2025-05-22 at 13 08 01" src="https://github.com/user-attachments/assets/01a5418d-c043-4bb1-bce1-a41edf58fa30" />
