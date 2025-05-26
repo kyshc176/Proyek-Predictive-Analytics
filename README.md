@@ -93,6 +93,7 @@ Dataset ini terdiri dari 45.211 entri dan 17 kolom, masing-masing baris merepres
 - Kolom saldo berisi beberapa nilai negatif, yang dapat mengindikasikan bahwa beberapa nasabah tertentu telah melakukan penarikan dana secara berlebihan pada rekening mereka atau memiliki hutang yang belum dibayar. Saldo negatif ini menunjukkan bahwa beberapa nasabah mungkin mengalami kesulitan atau tantangan keuangan.
 - Tampaknya terdapat sejumlah kecil outlier pada kolom **saldo** dan **durasi**, seperti yang ditunjukkan oleh kesenjangan yang mencolok antara nilai persentil 99.9% dan nilai maksimum pada kolom-kolom ini. Hal ini menunjukkan bahwa mungkin ada beberapa nilai ekstrem yang membuat distribusi data di kolom-kolom ini miring.
 
+
 ## Unvariate dan Bivariate Analisys
 Univariate dan bivariate Analysis adalah menganalisis setiap fitur secara terpisah.
 ## Kategorical
@@ -154,7 +155,38 @@ Multivariate Analysis menunjukkan hubungan antara dua atau lebih fitur dalam dat
 
 ## Data Preparation
 1. Future Enginering
-Feature Engineering adalah proses menciptakan, memilih, dan memodifikasi fitur dalam dataset untuk meningkatkan performa model machine learning. Salah satu transformasi fitur yang kami lakukan adalah rekategorisasi fitur job untuk mengelompokkan pekerjaan nasabah berdasarkan karakteristik perilaku berlangganan. cat_1 = ['retired','student']; cat_2 = ['blue-collar','management','technician','admin.','services']; cat_3 = ['unemployed','housemaid','unknown']; cat_4 = ['self-employed','entrepreneur'].
+Feature Engineering adalah proses menciptakan, memilih, dan memodifikasi fitur dalam dataset untuk meningkatkan performa model machine learning.
+- # Check Outliers
+<img width="1304" alt="Screenshot 2025-05-26 at 19 58 50" src="https://github.com/user-attachments/assets/07a11a1b-406f-41a2-8169-6660f7b2649f" />
+# Analisis
+- Dalam skenario ini, tidak disarankan untuk menghapus pencilan dari dataset karena mengandung informasi yang berharga. Sebagai contoh, pada kolom saldo bank, beberapa nasabah memiliki saldo yang tinggi sementara beberapa lainnya memiliki saldo yang tidak positif. Jika kita menghapus pencilan ini, model kita tidak akan memiliki informasi yang cukup untuk membuat prediksi yang akurat, dan ada risiko overfitting.
+
+- Demikian pula, untuk kolom usia, terdapat pencilan dalam dataset, tetapi kita perlu melatih model kita untuk membuat prediksi berdasarkan semua faktor yang tersedia. Jika kita menghapus pencilan, kita mungkin akan kehilangan informasi penting yang dapat mempengaruhi akurasi model kita. Oleh karena itu, penting untuk menjaga outlier dalam dataset dan menggunakan teknik yang tepat untuk menanganinya selama pelatihan model. di sini tidak ada masalah karena kami menggunakan algoritma yang kuat.
+
+- # Pembuatan column baru untuk kategori job serta explorasi dengan deposit
+  cat_1 = ['retired','student'], cat_2 = ['blue-collar','management','technician','admin.','services'], cat_3 = ['unemployed','housemaid','unknown'], cat_4 = ['self-employed','entrepreneur']
+<img width="1164" alt="Screenshot 2025-05-26 at 20 01 16" src="https://github.com/user-attachments/assets/1456ef36-d5ec-47a8-8b56-6575e35072bb" />
+<img width="1308" alt="Screenshot 2025-05-26 at 20 02 04" src="https://github.com/user-attachments/assets/4d574790-218f-442a-8aa1-fe769b465f53" />
+# Analisis
+- kami mengamati bahwa kategori 1 dan 2 memiliki rasio langganan deposito berjangka yang tinggi. Namun, kami melihat bahwa bank lebih banyak menghubungi nasabah kategori 2 dibandingkan dengan kategori 1. Hal ini menunjukkan bahwa bank harus lebih fokus pada nasabah kategori 2, tetapi pada saat yang sama, bank juga tidak boleh mengabaikan nasabah kategori 1, karena meskipun jumlah nasabahnya lebih sedikit, namun rasio nasabah yang berlangganan masih tinggi. Bank harus mencoba untuk mencapai keseimbangan antara kedua kategori ini dan mengalokasikan sumber daya mereka secara tepat untuk memaksimalkan tingkat berlangganan mereka.
+
+- # Pembuatan column baru untuk kategori age serta explorasi dengan deposit dan scaterr plot dengan durasi
+< 30	'struggling'; 30–49	'stable'; 50–59	'about to retire'; 60–74	'old age'; ≥ 75	'counting a last breathe'.
+<img width="1255" alt="Screenshot 2025-05-26 at 20 05 37" src="https://github.com/user-attachments/assets/f00786d5-764a-4f7c-991e-0dc47926eb9f" />
+<img width="1302" alt="Screenshot 2025-05-26 at 20 05 44" src="https://github.com/user-attachments/assets/b4e8deee-1961-441a-8046-c71e82616446" />
+<img width="1305" alt="Screenshot 2025-05-26 at 20 07 07" src="https://github.com/user-attachments/assets/1d4a7517-1555-442c-93b5-9c37312f323c" />
+
+# Analisis
+- bank harus lebih fokus pada kategori yang sedang berjuang dan akan pensiun juga
+- Kesimpulan Dari scatterplot di atas dapat disimpulkan bahwa ketika kategori usia old_age dan stabil maka durasi komunikasi lebih banyak dan ketika durasi tinggi maka kemungkinan besar klien akan berlangganan deposito berjangka. Dari scatterplot di atas kita dapat menyimpulkan bahwa ketika durasi kontak dari 300 hingga 2000 di kolom stabil, berjuang, akan pensiun dan saldo klien berada di kisaran tengah 500-35000 maka klien tersebut sebagian besar berlangganan deposito berjangka.
+  
+- # Ubah kolom y ke term_deposit dan menghapus kolom tidak relevan
+<img width="1326" alt="Screenshot 2025-05-26 at 20 08 46" src="https://github.com/user-attachments/assets/1d6bbf90-da71-4120-825c-1bbecdd55983" />
+- Kolom 'pdays' dan 'duration' telah dihapus dari dataset karena tidak relevan untuk membangun model prediktif untuk pelanggan baru. 'duration' mewakili durasi kontak terakhir dengan pelanggan di kampanye sebelumnya, dan 'pdays' mewakili jumlah hari yang telah berlalu sejak pelanggan terakhir kali dihubungi. Karena kami sedang membangun model untuk pelanggan baru, informasi ini tidak tersedia untuk mereka. Oleh karena itu, menghapus kolom ini akan mencegah bias atau overfitting yang mungkin terjadi akibat penggunaan data yang tidak relevan atau tidak tersedia.
+- # Korelasi Numeric
+<img width="1174" alt="Screenshot 2025-05-26 at 20 10 15" src="https://github.com/user-attachments/assets/dadf0bb5-9127-44fb-b858-d0930dced157" />
+# Analisis
+- tidak ada multikolinearitas yang signifikan antara variabel-variabel independen. Oleh karena itu, kita dapat menyimpulkan bahwa model tersebut robust dan variabel independen cocok untuk memprediksi variabel dependen.
 
 2. Encoding Categorical Columns
 Encoding categorical columns adalah proses mengubah data kategorikal ('job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month','poutcome', 'y') menjadi format numerik agar dapat diproses oleh algoritma machine learning. Sebagian besar model machine learning hanya bisa menerima data numerik, sehingga data kategorikal perlu diubah terlebih dahulu.
@@ -178,8 +210,7 @@ Original dataset length: 44.709
 Resampled dataset length (setelah SMOTE): 79.844
 Dengan SMOTE, model menjadi lebih adil dalam mempelajari pola dari kedua kelas, sehingga performa prediksi terhadap kelas minoritas meningkat.
 
-## Modeling
-1. Train, Test and Split
+5. Train, Test and Split
 Setelah dilakukan SMOTE oversampling, dataset dibagi menjadi dua bagian dengan proporsi sekitar 80:20.:
 Training set (X_train, y_train): Digunakan untuk melatih model.
 Test set (X_test, y_test): Digunakan untuk mengevaluasi performa model pada data yang belum pernah dilihat sebelumnya.
@@ -189,9 +220,11 @@ X_test: (15.969, 35)
 y_train: (63.875,)
 y_test: (15.969,)
 
-2. Standarisasi
+6. Standarisasi
 Standarisasi adalah proses mengubah skala fitur agar memiliki mean = 0 dan standard deviation = 1. Hal ini penting untuk algoritma berbasis jarak atau probabilitas, seperti:
 K-Nearest Neighbors (KNN), Naive Bayes, Logistic Regression, Support Vector Machine (SVM)
+
+## Modeling
 
 Untuk menyelesaikan permasalahan prediksi Bank Marketing Effectiveness, proyek ini menggunakan 3 algoritma Machine Learning: Support Vector Machine (SVM), Random Forest Regressor, dan K-Nearest Neighbors Regressor (KNN). Tujuan utamanya adalah memilih model terbaik berdasarkan performa prediksi terhadap efektivitas marketing, dengan mempertimbangkan akurasi serta kompleksitas model.
 
