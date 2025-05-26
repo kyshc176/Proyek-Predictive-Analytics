@@ -229,6 +229,18 @@ K-Nearest Neighbors (KNN), Naive Bayes, Logistic Regression, Support Vector Mach
 Untuk menyelesaikan permasalahan prediksi Bank Marketing Effectiveness, proyek ini menggunakan 3 algoritma Machine Learning: Support Vector Machine (SVM), Random Forest Regressor, dan K-Nearest Neighbors Regressor (KNN). Tujuan utamanya adalah memilih model terbaik berdasarkan performa prediksi terhadap efektivitas marketing, dengan mempertimbangkan akurasi serta kompleksitas model.
 
 1. Support Vector Machine (SVM)
+📌 Cara Kerja
+SVM mencari hyperplane optimal yang memisahkan kelas secara maksimal di ruang fitur. Jika data tidak bisa dipisahkan secara linear, digunakan kernel trick (default: RBF) untuk memetakan data ke dimensi yang lebih tinggi.
+
+⚙️ Parameter
+Default: kernel='rbf', C=1.0, gamma='scale'.
+⚒️ Pipeline
+Imputer: SimpleImputer (mean).
+Scaler: step1.
+Model: SVC (Support Vector Classifier).
+📈 Evaluasi
+Prediksi dan akurasi diukur pada data latih dan uji. ROC-AUC dihitung untuk membandingkan performa.
+
 SVM mencari hyperplane terbaik yang memisahkan kelas dengan margin terbesar di ruang fitur. Dengan kernel trick, SVM dapat menangani data non-linear dan kompleks.
 - Library: sklearn.svm.SVC
 - **Kelebihan:**
@@ -240,6 +252,24 @@ SVM mencari hyperplane terbaik yang memisahkan kelas dengan margin terbesar di r
 - Sulit diinterpretasi.
 
 2. Random Forest Classifier (RF)
+📌 Cara Kerja
+Random Forest membentuk banyak decision tree berdasarkan subset acak dari data dan fitur, kemudian menggabungkan hasilnya melalui voting untuk klasifikasi. Ini memperkecil overfitting dan meningkatkan generalisasi.
+
+⚙️ Parameter Tuning
+Menggunakan GridSearchCV dengan:
+n_estimators: [100, 300, 500, 800, 1000]
+max_depth: [6, 8, 10, 13, 15, 18, 20]
+parameters = {
+    'n_estimators':[100,300,500,800,1000],
+    'max_depth' :[6,8,10,13,15,18,20]
+}
+⚒️ Pipeline
+Scaler: step1.
+Model: GridSearchCV untuk RandomForestClassifier.
+📈 Evaluasi
+rfc.best_params_ dan rfc.best_score_ digunakan untuk melihat parameter terbaik.
+Evaluasi performa dilakukan dengan ROC-AUC dan metrik klasifikasi lainnya.
+
 Random Forest adalah ensemble learning berbasis banyak Decision Tree, menggunakan voting mayoritas untuk klasifikasi. Algoritma ini kuat menangani fitur kompleks, interaksi non-linear, dan data dengan skala berbeda.
 - Library: sklearn.ensemble.RandomForestClassifier
 - **Kelebihan:**
@@ -251,6 +281,21 @@ Random Forest adalah ensemble learning berbasis banyak Decision Tree, menggunaka
 - Memerlukan waktu pelatihan lebih lama daripada model sederhana.
 
 3. K-Nearest Neighbors (KNN)
+📌 Cara Kerja
+KNN mengklasifikasikan data berdasarkan mayoritas dari k tetangga terdekat dalam ruang fitur. Model ini tidak belajar eksplisit, melainkan hanya menyimpan data latih dan menghitung jarak ke data baru saat prediksi. Semakin dekat jaraknya, semakin besar pengaruhnya terhadap klasifikasi.
+⚙️ Parameter Tuning
+Menggunakan GridSearchCV dengan:
+n_neighbors: [5, 6, ..., 19] → Mencari nilai k terbaik.
+weights: ['uniform'] → Semua tetangga diberi bobot yang sama.
+⚒️ Pipeline
+Imputer: Menangani nilai hilang dengan strategi mean.
+Scaler: step1 (diasumsikan StandardScaler).
+Model: GridSearchCV untuk KNN.
+📈 Evaluasi
+knn.best_params_: Menampilkan parameter terbaik.
+knn.best_score_: Skor cross-validation tertinggi.
+Hasil prediksi divisualisasikan dan diukur dengan ROC-AUC.
+
 KNN mengklasifikasikan data berdasarkan mayoritas kelas dari k tetangga terdekat di ruang fitur. Jarak antar data menentukan siapa tetangga terdekat.
 - Library: sklearn.neighbors.KNeighborsClassifier
 - **Kelebihan:**
@@ -272,6 +317,40 @@ Mengukur proporsi prediksi positif yang benar-benar positif (true positive diban
 Mengukur proporsi data positif yang berhasil dideteksi oleh model. Recall tinggi berarti sedikit false negative. Penting ketika ingin meminimalisir melewatkan kasus positif.
 **- F1-Score**
 Merupakan harmonisasi dari precision dan recall, memberikan nilai tunggal untuk menyeimbangkan keduanya. Cocok dipakai jika ingin keseimbangan antara precision dan recall.
+
+1. Problem Statement 1: Bagaimana memprediksi apakah seorang nasabah akan merespons positif terhadap kampanye pemasaran bank?
+✔️ Jawaban:
+Ya, proyek ini berhasil memprediksi dengan baik apakah seorang nasabah akan merespons positif (berlangganan deposito) dengan menggunakan 3 model:
+KNN, SVM, dan Random Forest. Dari ketiganya, Random Forest Classifier menunjukkan performa terbaik (Recall: 0.94), yang berarti model ini mampu mengidentifikasi sebagian besar nasabah yang benar-benar akan mengatakan "Ya".
+🎯 Dampaknya terhadap bisnis:
+Model ini membantu bank mengefisienkan kampanye, dengan:
+- Menargetkan hanya nasabah yang berpotensi tinggi berlangganan.
+- Mengurangi beban kerja telemarketing.
+- Meningkatkan ROI kampanye pemasaran.
+
+2. Problem Statement 2: Fitur-fitur nasabah mana yang paling berpengaruh terhadap keberhasilan kampanye?
+✔️ Jawaban:
+Model Random Forest tidak hanya membuat prediksi, tetapi juga menyediakan informasi tentang pentingnya fitur. Walaupun tidak ditampilkan eksplisit dalam evaluasi akhir Anda, Random Forest memiliki atribut .feature_importances_ yang bisa digunakan untuk:
+- Mengetahui variabel seperti durasi panggilan, panggilan sebelumnya, status pekerjaan, status pernikahan, dan hasil kampanye sebelumnya sebagai faktor penting dalam keputusan nasabah.
+- Jika belum dianalisis, disarankan untuk menambahkan grafik atau tabel top 10 fitur penting menggunakan feature_importances_ untuk mendukung problem statement ini secara lebih kuat.
+🎯 Dampaknya terhadap bisnis:
+Tim marketing bisa menyesuaikan pendekatan tergantung pada profil nasabah.
+Bank dapat meningkatkan personalisasi kampanye, sehingga meningkatkan efektivitas.
+
+3. Problem Statement 3: Algoritma Machine Learning mana yang paling efektif dalam memprediksi keberhasilan kampanye pemasaran?
+✔️ Jawaban:
+Berdasarkan evaluasi metrik:
+Model	Recall (Ya)
+Random Forest	0.94; SVM	0.94; KNN	0.93
+Random Forest Classifier:
+- Performa konsisten (akurasi validasi silang dan uji 94%)
+- Recall tinggi untuk kelas “Ya”
+- Overfitting tidak terlalu tinggi (train: 97%, test: 94%)
+AUC tertinggi dibanding model lain (berdasarkan ROC curve yang ditampilkan)
+🎯 Dampaknya terhadap bisnis:
+- Memungkinkan identifikasi yang andal terhadap nasabah prospektif
+- Menghindari pemborosan panggilan terhadap nasabah yang kemungkinan besar akan menolak
+- Efisiensi operasional meningkat, hasil kampanye membaik.
 
 2. Hasil Evaluasi Model
 
